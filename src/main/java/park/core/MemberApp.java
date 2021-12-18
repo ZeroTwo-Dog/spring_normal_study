@@ -1,5 +1,6 @@
 package park.core;
 
+import park.core.config.AppConfig;
 import park.core.domain.Grade;
 import park.core.domain.Member;
 import park.core.service.MemberService;
@@ -11,7 +12,8 @@ import park.core.service.MemberServiceImpl;
 public class MemberApp {
 
   public static void main(String[] args) {
-    MemberService memberService = new MemberServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
     Member member = new Member(1L, "memberA", Grade.VIP);
     memberService.join(member);
 

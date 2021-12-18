@@ -12,9 +12,13 @@ import park.core.service.discount.FixDiscountPolicyService;
  */
 public class OrderServiceImpl implements OrderService{
 
-  private final MemberRepository memberRepository = new MemoryMemberRepository();
-//  private DiscountPolicyService discountPolicy;
-  private final DiscountPolicyService discountPolicy = new FixDiscountPolicyService();
+  private MemberRepository memberRepository;
+  private DiscountPolicyService discountPolicy;
+
+  public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicyService discountPolicy) {
+     this.memberRepository = memberRepository;
+     this.discountPolicy = discountPolicy;
+  }
 
   @Override
   public Order createOrder(Long memberId, String itemName, int itemPrice) {

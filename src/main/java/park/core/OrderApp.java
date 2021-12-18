@@ -1,5 +1,6 @@
 package park.core;
 
+import park.core.config.AppConfig;
 import park.core.domain.Grade;
 import park.core.domain.Member;
 import park.core.domain.Order;
@@ -14,8 +15,10 @@ import park.core.service.OrderServiceImpl;
 public class OrderApp {
 
   public static void main(String[] args) {
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
+    OrderService orderService = appConfig.orderService();
+
 
     Long memberId = 1L;
 

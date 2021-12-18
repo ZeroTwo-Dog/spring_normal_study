@@ -2,6 +2,7 @@ package park.core.order;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import park.core.config.AppConfig;
 import park.core.domain.Grade;
 import park.core.domain.Member;
 import park.core.domain.Order;
@@ -15,10 +16,15 @@ import park.core.service.OrderServiceImpl;
  */
 public class OrderServiceTest {
 
-  MemberService memberService = new MemberServiceImpl();
+  MemberService memberService;
+  OrderService  orderService;
 
-  OrderService orderService = new OrderServiceImpl();
-  
+  public void beforeEach() {
+    AppConfig appConfig = new AppConfig();
+    memberService = appConfig.memberService();
+
+    orderService = appConfig.orderService();
+  }
   @Test
   public void createOrder() {
     //given

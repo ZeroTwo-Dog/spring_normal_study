@@ -1,7 +1,9 @@
 package park.core.member;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import park.core.config.AppConfig;
 import park.core.domain.Grade;
 import park.core.domain.Member;
 import park.core.service.MemberService;
@@ -12,8 +14,13 @@ import park.core.service.MemberServiceImpl;
  */
 public class MemberServiceTest {
 
-  MemberService memberService = new MemberServiceImpl();
+  MemberService memberService;
 
+  @BeforeEach
+  public void beforeEach() {
+    AppConfig appConfig = new AppConfig();
+    memberService = appConfig.memberService();
+  }
   @Test
   void join() {
     //given
