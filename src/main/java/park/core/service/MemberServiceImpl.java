@@ -1,7 +1,7 @@
 package park.core.service;
 
 import park.core.domain.Member;
-import park.core.repository.MemberMemberRepository;
+import park.core.repository.MemoryMemberRepository;
 import park.core.repository.MemberRepository;
 
 /**
@@ -9,7 +9,7 @@ import park.core.repository.MemberRepository;
  */
 public class MemberServiceImpl implements MemberService{
 
-  private final MemberRepository memberRepository = new MemberMemberRepository();
+  private final MemberRepository memberRepository = new MemoryMemberRepository();
 
   @Override
   public void join(Member member) {

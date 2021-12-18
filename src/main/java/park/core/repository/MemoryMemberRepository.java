@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import park.core.domain.Member;
 
-public class MemberMemberRepository implements MemberRepository {
+public class MemoryMemberRepository implements MemberRepository {
 
   private static final Map<Long, Member> store = new HashMap<>();
 
