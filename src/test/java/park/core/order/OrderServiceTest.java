@@ -1,6 +1,7 @@
 package park.core.order;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import park.core.config.AppConfig;
 import park.core.domain.Grade;
@@ -19,6 +20,7 @@ public class OrderServiceTest {
   MemberService memberService;
   OrderService  orderService;
 
+  @BeforeEach
   public void beforeEach() {
     AppConfig appConfig = new AppConfig();
     memberService = appConfig.memberService();

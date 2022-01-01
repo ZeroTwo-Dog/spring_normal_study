@@ -3,7 +3,9 @@ package park.core.discount;
 import static org.assertj.core.api.Assertions.*;
 
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import park.core.config.AppConfig;
@@ -18,8 +20,15 @@ class RateDiscountPolicyServiceTest {
   MemberService memberService;
   OrderService orderService;
 
+  @BeforeAll
+  static void beforeAll()  {
+    System.out.println("beforeAll");
+  }
+
   @BeforeEach
   public void beforeEach() {
+        System.out.println("beforeEach");
+
     AppConfig appConfig = new AppConfig();
 
     orderService = appConfig.orderRateService();
@@ -27,6 +36,7 @@ class RateDiscountPolicyServiceTest {
   }
   
   @Test
+  @Disabled
   @DisplayName("VIP는 10%할인이 적용되어야한다.")
   public void vip_o() {
     //given
