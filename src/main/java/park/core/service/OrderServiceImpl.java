@@ -12,8 +12,8 @@ import park.core.service.discount.FixDiscountPolicyService;
  */
 public class OrderServiceImpl implements OrderService{
 
-  private MemberRepository memberRepository;
-  private DiscountPolicyService discountPolicy;
+  private final MemberRepository memberRepository;
+  private final DiscountPolicyService discountPolicy;
 
   public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicyService discountPolicy) {
      this.memberRepository = memberRepository;

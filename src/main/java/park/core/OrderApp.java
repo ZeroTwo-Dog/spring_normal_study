@@ -1,5 +1,7 @@
 package park.core;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import park.core.config.AppConfig;
 import park.core.domain.Grade;
 import park.core.domain.Member;
@@ -15,10 +17,14 @@ import park.core.service.OrderServiceImpl;
 public class OrderApp {
 
   public static void main(String[] args) {
-    AppConfig appConfig = new AppConfig();
-    MemberService memberService = appConfig.memberService();
-    OrderService orderService = appConfig.orderService();
+//    AppConfig appConfig = new AppConfig();
+//    MemberService memberService = appConfig.memberService();
+//    OrderService orderService = appConfig.orderService();
 
+    ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+    MemberService memberService = context.getBean("memberService", MemberService.class);
+    var orderService = context.getBean("orderService", OrderService.class);
 
     Long memberId = 1L;
 

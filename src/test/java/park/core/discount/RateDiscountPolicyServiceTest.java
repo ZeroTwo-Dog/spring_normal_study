@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import park.core.config.AppConfig;
 import park.core.domain.Grade;
 import park.core.domain.Member;
@@ -29,10 +31,13 @@ class RateDiscountPolicyServiceTest {
   public void beforeEach() {
         System.out.println("beforeEach");
 
-    AppConfig appConfig = new AppConfig();
+//    AppConfig appConfig = new AppConfig();
 
-    orderService = appConfig.orderRateService();
-    memberService = appConfig.memberService();
+
+    ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+    memberService = context.getBean("memberService", MemberService.class);
+    orderService = context.getBean("orderService", OrderService.class);
   }
   
   @Test
