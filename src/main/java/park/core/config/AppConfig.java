@@ -31,7 +31,7 @@ public class AppConfig {
 
   @Bean
   public OrderService orderService() {
-    return new OrderServiceImpl(memberRepository(), fixDiscountPolicy());
+    return new OrderServiceImpl(memberRepository(), rateDiscountPolicy());
   }
 
   @Bean
@@ -44,8 +44,8 @@ public class AppConfig {
     return new RateDiscountPolicyService();
   }
 
-  @Bean
-  public DiscountPolicyService fixDiscountPolicy() {
-    return new FixDiscountPolicyService();
-  }
+//  @Bean
+//  public DiscountPolicyService fixDiscountPolicy() {
+//    return new FixDiscountPolicyService();
+//  }
 }
