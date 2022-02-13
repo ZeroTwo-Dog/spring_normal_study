@@ -1,6 +1,7 @@
 package park.core.service.discount;
 
 import org.springframework.stereotype.Component;
+import park.core.annotatioon.MainDiscountPolicy;
 import park.core.domain.Grade;
 import park.core.domain.Member;
 
@@ -8,6 +9,7 @@ import park.core.domain.Member;
  * Created by park on 2021/11/20.
  */
 @Component
+@MainDiscountPolicy
 public class RateDiscountPolicyService implements DiscountPolicyService{
 
 

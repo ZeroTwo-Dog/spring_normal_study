@@ -3,6 +3,7 @@ package park.core.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import park.core.annotatioon.MainDiscountPolicy;
 import park.core.domain.Member;
 import park.core.domain.Order;
 import park.core.repository.MemoryMemberRepository;
@@ -14,12 +15,16 @@ import park.core.service.discount.FixDiscountPolicyService;
  * Created by park on 2021/11/20.
  */
 @Component
-@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
 
   private final MemberRepository memberRepository;
   private final DiscountPolicyService discountPolicy;
-  
+
+  @Autowired
+  public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicyService discountPolicy) {
+     this.memberRepository = memberRepository;
+     this.discountPolicy = discountPolicy;
+  }
 
   public MemberRepository getMemberRepository() {
     return memberRepository;
