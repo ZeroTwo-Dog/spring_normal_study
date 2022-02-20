@@ -15,13 +15,14 @@ import park.core.service.discount.FixDiscountPolicyService;
  * Created by park on 2021/11/20.
  */
 @Component
+
 public class OrderServiceImpl implements OrderService{
 
   private final MemberRepository memberRepository;
   private final DiscountPolicyService discountPolicy;
 
   @Autowired
-  public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicyService discountPolicy) {
+  public OrderServiceImpl(MemberRepository memberRepository,  DiscountPolicyService discountPolicy) {
      this.memberRepository = memberRepository;
      this.discountPolicy = discountPolicy;
   }

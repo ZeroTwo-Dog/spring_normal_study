@@ -41,11 +41,19 @@ public class AllBeanTest {
     //then
   }
 
-  @RequiredArgsConstructor
   static class DiscountService {
     private final Map<String, DiscountPolicyService> policyMap;
     private final List<DiscountPolicyService> policyList;
 
+    public DiscountService(
+        Map<String, DiscountPolicyService> policyMap,
+        List<DiscountPolicyService> policyList) {
+
+      System.out.println(policyList);
+      System.out.println(policyMap);
+      this.policyMap = policyMap;
+      this.policyList = policyList;
+    }
 
     public int discount(Member member, int price , String discountCode) {
       DiscountPolicyService discountPolicy = policyMap.get(discountCode);
