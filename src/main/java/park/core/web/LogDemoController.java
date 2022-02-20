@@ -18,12 +18,13 @@ import park.core.common.MyLogger;
 public class LogDemoController {
 
   private final LogDemoService logDemoService;
-  private final ObjectProvider<MyLogger> myLoggerProvider;
+  private final MyLogger myLogger;
 
   @RequestMapping("log-demo")
   @ResponseBody
   public String logDemo (HttpServletRequest request) {
-    MyLogger myLogger= myLoggerProvider.getObject();
+
+    System.out.println(myLogger.getClass());
     myLogger.setRequestURL(request.getRequestURL().toString());
     myLogger.log("controller test");
 
