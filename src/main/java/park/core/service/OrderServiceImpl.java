@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService{
   private final DiscountPolicyService discountPolicy;
 
   @Autowired
-  public OrderServiceImpl(MemberRepository memberRepository,  DiscountPolicyService discountPolicy) {
+  public OrderServiceImpl(MemberRepository memberRepository,  @MainDiscountPolicy DiscountPolicyService discountPolicy) {
      this.memberRepository = memberRepository;
      this.discountPolicy = discountPolicy;
   }
