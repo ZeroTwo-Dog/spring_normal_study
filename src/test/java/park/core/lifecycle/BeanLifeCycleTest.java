@@ -2,6 +2,7 @@ package park.core.lifecycle;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,10 +15,10 @@ public class BeanLifeCycleTest {
   @Test
   public void lifeCycleTest() throws Exception {
     //given
-    ApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
+    ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
     //when
     NetworkClient client = ac.getBean(NetworkClient.class);
-    client.disConnect();
+    ac.close();
     //then
   }
 
